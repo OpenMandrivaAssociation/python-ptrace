@@ -1,6 +1,6 @@
 %define module	ptrace
 %define name	python-%{module}
-%define version	0.4.2
+%define version	0.5
 %define release	%mkrel 1
 
 Summary:        Python binding of the ptrace library

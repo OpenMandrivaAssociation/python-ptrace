@@ -44,6 +44,8 @@ python ./test_doc.py
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILELIST
+%files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog COPYING README TODO
+%{_bindir}/*
+%py_platsitedir/*

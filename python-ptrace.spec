@@ -4,7 +4,7 @@ Summary:        Python binding of the ptrace library
 
 Name:		python-%{module}
 Version: 	0.7
-Release: 	1
+Release: 	2
 Group: 		Development/Python
 License:        GPLv2
 URL:            http://python-ptrace.hachoir.org/trac/

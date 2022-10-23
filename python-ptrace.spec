@@ -3,14 +3,14 @@
 Summary:        Python binding of the ptrace library
 
 Name:		python-%{module}
-Version: 	0.7
-Release: 	2
+Version: 	1.0.1
+Release: 	1
 Group: 		Development/Python
 License:        GPLv2
-URL:            http://python-ptrace.hachoir.org/trac/
-Source:         http://pypi.python.org/packages/source/p/python-ptrace/%{name}-%{version}.tar.gz
+URL:            https://pypi.org/project/ptrace
+Source:         https://files.pythonhosted.org/packages/source/p/ptrace/ptrace-%{version}.tar.gz
 BuildArch:      noarch
-BuildRequires:	python-devel >= 2.4
+BuildRequires:	python-devel
 
 %description
 python-ptrace is a Python binding of the ptrace library with the
@@ -26,13 +26,14 @@ following features:
 * Provides system call tracer and parser (strace command)
 
 %prep
-%setup -q -n %{name}-%{version}
+%autosetup -p1 -n ptrace-%{version}
+find . -name "*.py" |xargs 2to3 -w
 
 %build
-%__python setup.py build
+%py_build
 
 %install
-%__python setup.py install --root=%{buildroot} --record=FILELIST
+%py_install
 
 %check
 python ./test_doc.py
@@ -41,6 +42,3 @@ python ./test_doc.py
 %doc AUTHORS ChangeLog COPYING README TODO
 %{_bindir}/*
 %{py_puresitedir}/*
-
-
-
